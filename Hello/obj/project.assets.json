@@ -7042,10 +7042,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\users\\ad250430\\documents\\visual studio 2017\\Projects\\Hello\\Hello\\Hello.csproj",
+      "projectUniqueName": "C:\\Users\\AD250430\\documents\\visual studio 2017\\Projects\\Hello\\Hello\\Hello.csproj",
       "projectName": "Hello",
-      "projectPath": "c:\\users\\ad250430\\documents\\visual studio 2017\\Projects\\Hello\\Hello\\Hello.csproj",
-      "outputPath": "c:\\users\\ad250430\\documents\\visual studio 2017\\Projects\\Hello\\Hello\\obj\\",
+      "projectPath": "C:\\Users\\AD250430\\documents\\visual studio 2017\\Projects\\Hello\\Hello\\Hello.csproj",
+      "outputPath": "C:\\Users\\AD250430\\documents\\visual studio 2017\\Projects\\Hello\\Hello\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
