@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace KoalaLand
 {
     class CreateKoalas
     {
         private List<Koalas> koalas = new List<Koalas>();
-        Koalas koala = new Koalas();
+        Koalas koala;
+        
         public List<Koalas> GetKoalasList()
         {
             return koalas;
@@ -23,33 +25,40 @@ namespace KoalaLand
             int numKoalas = int.Parse(Console.ReadLine());
 
             string nameKoala;
-            int ageKoala;
+            string ageKoala;
             string favoriteFood;
             string colorKoala;
-            Boolean snuggles;
+            string snuggles;
+            int age;
 
             for (int i = 0; i < numKoalas; i++)
             {
                 Console.WriteLine("Name your Koala: ");
                 nameKoala = Console.ReadLine();
-                koala.SetName(nameKoala);
 
                 Console.WriteLine("Age of your Koala: ");
-                ageKoala = int.Parse(Console.ReadLine());
-                koala.SetAge(ageKoala);
-
+                ageKoala = Console.ReadLine();
+                if (!int.TryParse(ageKoala, out age))
+                {
+                    Console.WriteLine("Integer expected.");
+                    int.TryParse(Console.ReadLine(), out age);
+                }
+                    
                 Console.WriteLine("Koala's favorite food: ");
                 favoriteFood = Console.ReadLine();
-                koala.SetFavoriteFood(favoriteFood);
 
                 Console.WriteLine("Color of your Koala: ");
                 colorKoala = Console.ReadLine();
-                koala.SetColor(colorKoala);
 
-                Console.WriteLine("Does your Koala likes snuggles (True/False): ");
-                snuggles = Boolean.Parse(Console.ReadLine());
-                koala.SetSnuggles(snuggles);
+                Console.WriteLine("Does your Koala likes snuggles (yes/no): ");
+                snuggles = Console.ReadLine();
+                if ((snuggles.ToLower() != "yes") || (snuggles.ToLower() != "no"))
+                {
+                    Console.WriteLine("Please answer with yes or no.");
+                    snuggles = Console.ReadLine();
+                }
 
+                koala = new Koalas(nameKoala, ageKoala, favoriteFood, colorKoala, snuggles);
                 koalas.Add(koala);
             }
         }
@@ -60,6 +69,29 @@ namespace KoalaLand
             {
                 Console.WriteLine(item.ToString());
             }
+        }
+
+        public void AllKoalaNames()
+        {
+            IEnumerable<string> allKoalaNames = koalas.Select(x => x.GetName());
+            List<Koalas> koalaNamesList = koalas.Where(x => x.GetSnuggles().ToLower().Equals("yes")).ToList();
+
+            foreach (var item in allKoalaNames)
+            {
+                Console.WriteLine($"All Koala Names: {item.ToString()}");
+            }
+
+            foreach (var item in koalaNamesList)
+            {
+                Console.WriteLine($"Snugglie Koalas: {koalaNamesList.Count()}");
+            }
+            
+        }
+
+        public int CountKoalas()
+        {
+            int allKoalas = koalas.Count();
+            return allKoalas;
         }
     }
 }

@@ -7,13 +7,14 @@ namespace KoalaLand
     class Koalas
     {
         private string name;
-        private int age;
+        private string age;
         private string favoriteFood;
         private string color;
-        private Boolean snuggles = false;
+        private string snuggles;
+
 
         public Koalas() { }
-        public Koalas(string name, int age, string favoriteFood, string color, Boolean snuggles)
+        public Koalas(string name, string age, string favoriteFood, string color, string snuggles)
         {
             this.name = name;
             this.age = age;
@@ -32,12 +33,12 @@ namespace KoalaLand
             this.name = name;
         }
 
-        public int GetAge()
+        public string GetAge()
         {
             return age;
         }
 
-        public void SetAge(int age)
+        public void SetAge(string age)
         {
             this.age = age;
         }
@@ -62,12 +63,12 @@ namespace KoalaLand
             this.color = color;
         }
 
-        public Boolean GetSnuggles()
+        public string GetSnuggles()
         {
             return snuggles;
         }
 
-        public void SetSnuggles(Boolean snuggles)
+        public void SetSnuggles(string snuggles)
         {
             this.snuggles = snuggles;
         }

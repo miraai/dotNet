@@ -4,7 +4,7 @@ namespace Hello
 {
     class Program
     {
-        static void No()
+        static void Main(string[] args)
         {
             TestThis tt = new TestThis();
             //tt.ListGistLoop();
