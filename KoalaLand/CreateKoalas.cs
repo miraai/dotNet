@@ -9,7 +9,14 @@ namespace KoalaLand
     {
         private List<Koalas> koalas = new List<Koalas>();
         Koalas koala;
-        
+
+        string nameKoala;
+        int ageKoala;
+        string favoriteFood;
+        string colorKoala;
+        string snuggles;
+        int age;
+
         public List<Koalas> GetKoalasList()
         {
             return koalas;
@@ -24,12 +31,7 @@ namespace KoalaLand
             Console.WriteLine("How many Koalas do you want to make: ");
             int numKoalas = int.Parse(Console.ReadLine());
 
-            string nameKoala;
-            string ageKoala;
-            string favoriteFood;
-            string colorKoala;
-            string snuggles;
-            int age;
+            
 
             for (int i = 0; i < numKoalas; i++)
             {
@@ -37,12 +39,18 @@ namespace KoalaLand
                 nameKoala = Console.ReadLine();
 
                 Console.WriteLine("Age of your Koala: ");
-                ageKoala = Console.ReadLine();
-                if (!int.TryParse(ageKoala, out age))
-                {
-                    Console.WriteLine("Integer expected.");
-                    int.TryParse(Console.ReadLine(), out age);
-                }
+                //try
+                //{
+                //    ageKoala = int.Parse(Console.ReadLine());
+                //}
+                //catch (System.FormatException ex)
+                //{
+                //    Console.WriteLine("Integer expected.");
+                //    ageKoala = int.Parse(Console.ReadLine());
+                //    throw ex;
+
+                //}
+                while (!verif(Console.ReadLine())) { }
                     
                 Console.WriteLine("Koala's favorite food: ");
                 favoriteFood = Console.ReadLine();
@@ -51,8 +59,8 @@ namespace KoalaLand
                 colorKoala = Console.ReadLine();
 
                 Console.WriteLine("Does your Koala likes snuggles (yes/no): ");
-                snuggles = Console.ReadLine();
-                if ((snuggles.ToLower() != "yes") || (snuggles.ToLower() != "no"))
+                snuggles = Console.ReadLine().ToLower();
+                if ((snuggles != "yes") || (snuggles != "no"))
                 {
                     Console.WriteLine("Please answer with yes or no.");
                     snuggles = Console.ReadLine();
@@ -60,6 +68,21 @@ namespace KoalaLand
 
                 koala = new Koalas(nameKoala, ageKoala, favoriteFood, colorKoala, snuggles);
                 koalas.Add(koala);
+            }
+        }
+
+        public bool verif(string test)
+        {
+            try
+            {
+                ageKoala = int.Parse(test);
+                return true;
+            }
+            catch (System.FormatException ex)
+            {
+                Console.WriteLine("Integer expected.");
+                return false;
+
             }
         }
 

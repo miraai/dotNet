@@ -7,14 +7,14 @@ namespace KoalaLand
     class Koalas
     {
         private string name;
-        private string age;
+        private int age;
         private string favoriteFood;
         private string color;
         private string snuggles;
 
 
         public Koalas() { }
-        public Koalas(string name, string age, string favoriteFood, string color, string snuggles)
+        public Koalas(string name, int age, string favoriteFood, string color, string snuggles)
         {
             this.name = name;
             this.age = age;
@@ -33,12 +33,12 @@ namespace KoalaLand
             this.name = name;
         }
 
-        public string GetAge()
+        public int GetAge()
         {
             return age;
         }
 
-        public void SetAge(string age)
+        public void SetAge(int age)
         {
             this.age = age;
         }
